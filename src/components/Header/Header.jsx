@@ -1,6 +1,7 @@
 import './Header.css';
 import { Link } from 'react-router-dom';
 import { AppCarousel } from '../AppCarousel/AppCarousel';
+import { Carrito } from '../Carrito/Carrito';
 
 
 export const Header = () => {
@@ -32,13 +33,13 @@ export const Header = () => {
           <ul class="dropdown-menu">
             {
               categorias.map((item) => {
-                 return  <li><a class="dropdown-item" href={item}>{item}</a></li>
+                 return  <li><Link class="dropdown-item" to={item}>{item}</Link></li>
               })
             }
           </ul>
         </li>
       </ul>
-      <box-icon name='cart-add'></box-icon>
+      <Carrito></Carrito>
       <box-icon name='log-out'></box-icon>
     </div>
   </div>
