@@ -16,7 +16,7 @@ export const Inicio = () =>{
           <div className="row">
               {
                 categorias.map((object,index) => {
-                      return <Categoria info={object}></Categoria>
+                      return <Categoria key={index} info={object}></Categoria>
                   })
               }
           </div>

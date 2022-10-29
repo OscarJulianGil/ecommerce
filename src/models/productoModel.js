@@ -73,6 +73,22 @@ const productoModel = ()=> {
             imagen: 'https://falabella.scene7.com/is/image/FalabellaCO/19089136_1?wid=800&hei=800&qlt=70',
             precio: 100000
         },
+        {
+            id:10,
+            categoriaid: 2,
+            descripcion: 'Esta es la descripción de la categoria',
+            nombre: 'Zapatos',
+            imagen: 'https://falabella.scene7.com/is/image/FalabellaCO/19089136_1?wid=800&hei=800&qlt=70',
+            precio: 100000
+        },
+        {
+            id:11,
+            categoriaid: 5,
+            descripcion: 'Esta es la descripción de la categoria',
+            nombre: 'Arbol de navidad',
+            imagen: 'https://falabella.scene7.com/is/image/FalabellaCO/19089136_1?wid=800&hei=800&qlt=70',
+            precio: 20000
+        },
     ]
     return productos;
 }

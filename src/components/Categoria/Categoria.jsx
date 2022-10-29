@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 
 
 
@@ -10,7 +11,7 @@ export const Categoria = (props)=> {
                 <div className="card-body">
                     <h5 className="card-title">{props.info.nombre}</h5>
                     <p className="card-text">{props.info.descripcion}</p>
-                    <a href="#" className="btn btn-primary">COMPRA AHORA!</a>
+                    <Link className="btn btn-primary" to={props.info.nombre}>COMPRA AHORA!</Link>
                 </div>
             </div>
         </div>

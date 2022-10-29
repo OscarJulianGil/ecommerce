@@ -26,6 +26,12 @@ const categoriaModel = ()=> {
             descripcion: 'Esta es la descripción de la categoria',
             nombre: 'Ferreteria',
             imagen: 'https://falabella.scene7.com/is/image/FalabellaCO/19089136_1?wid=800&hei=800&qlt=70'
+        },
+        {
+            id: 5,
+            descripcion: 'Esta es la descripción de la categoria',
+            nombre: 'Navidad',
+            imagen: 'https://falabella.scene7.com/is/image/FalabellaCO/19089136_1?wid=800&hei=800&qlt=70'
         }
     ]
     return categorias;

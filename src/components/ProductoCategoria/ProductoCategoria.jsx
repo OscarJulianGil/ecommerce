@@ -19,12 +19,17 @@ export const ProductoCategoria = (props) => {
         provider.setCarrito([...provider.carrito,producto]);
     }
 
+    const productosCategoria = productos.filter(x => x.categoriaid == props.categoria.id);
+
     return (
         <div className="container">
-            <div className="row">
+            <div className="row mt-3">
+                <h1>Productos de la categoria {props.categoria.nombre}</h1>
+            </div>
+            <div className="row mt-3">
 
             {
-                productos.map((object,index) => {
+                productosCategoria.map((object,index) => {
                     return (
                         <div className="col">
                             <Card style={{ width: '18rem' }}>
@@ -32,7 +37,10 @@ export const ProductoCategoria = (props) => {
                                 <Card.Body>
                                 <Card.Title>{object.nombre}</Card.Title>
                                 <Card.Text>
-                                {object.descripcion}
+                                    {object.descripcion}
+                                </Card.Text>
+                                <Card.Text>
+                                    $ {object.precio}
                                 </Card.Text>
                                 <Button onClick={() => {
                                     adicionarProductoCarrito(object)
