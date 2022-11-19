@@ -1,10 +1,13 @@
 
 export class ApiConnectionServer{
 
+    //urlServer = "http://localhost:80/api/";
+    urlServer = "https://apishopv12.herokuapp.com/api/";
+
     postData(bodyData,endpoint){
         var requestData = JSON.stringify(bodyData);
 
-        var peticion = fetch("http://localhost:9000/api/" + endpoint,
+        var peticion = fetch(this.urlServer + endpoint,
         {
             method:'POST',
             headers:{
@@ -19,7 +22,7 @@ export class ApiConnectionServer{
 
 
     getData(endpoint){
-        var peticion = fetch("http://localhost:9000/api/" + endpoint);
+        var peticion = fetch(this.urlServer + endpoint);
         return peticion;
     }
 

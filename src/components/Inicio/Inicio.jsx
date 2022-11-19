@@ -1,21 +1,27 @@
+import { Component } from "react";
 import { useContext } from "react";
 import { DataContext } from "../../Context/DataProvider";
+import { ApiConnectionServer } from "../../data/ApiConnectionServer";
 import categoriaModel from "../../models/categoriaModel"
 import { AppCarousel } from "../AppCarousel/AppCarousel"
 import { Categoria } from "../Categoria/Categoria";
 
 
-export const Inicio = () =>{
+export class Inicio  extends Component{
 
-   var categorias = categoriaModel();
 
+  constructor(props){
+    super(props);
+
+  }
+   render(){
     return(
       <>
         <AppCarousel></AppCarousel>
         <div className="container">
           <div className="row">
               {
-                categorias.map((object,index) => {
+                this.props.categorias.map((object,index) => {
                       return <Categoria key={index} info={object}></Categoria>
                   })
               }
@@ -23,4 +29,5 @@ export const Inicio = () =>{
         </div>
       </>
     )
+  }
 }
