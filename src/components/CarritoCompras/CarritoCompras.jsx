@@ -2,8 +2,7 @@ import { useContext, useState } from "react"
 import { DataContext } from "../../Context/DataProvider"
 import Table from 'react-bootstrap/Table';
 import { Link } from "react-router-dom";
-
-
+import { PayPalScriptProvider,PayPalButtons } from "@paypal/react-paypal-js";
 
 export const CarritoCompras = () => {
 
@@ -27,6 +26,28 @@ export const CarritoCompras = () => {
         console.log(itemSubtotal = itemSubtotal + object.precio);
         //setSubTotal(item =  item + object.precio)
     })
+
+    function createOrder(data, actions) {
+        return actions.order.create({
+          intent: "CAPTURE",
+          purchase_units: [
+            {
+              amount: {
+                value: "2.00",
+              },
+            },
+          ],
+        });
+      }
+    
+      function onApprove(data, actions) {
+        console.log(data);
+        const paymentID = data.paymentID;
+        const orderID = data.orderID;
+        const payerID = data.payerID;
+    
+ 
+      }
 
     //setSubTotal(itemSubtotal);
 
@@ -85,6 +106,13 @@ export const CarritoCompras = () => {
                         </div>
                         <hr></hr>
                         <Link className="btn btn-success" to="/Checkout">Pagar!</Link>
+                        <PayPalScriptProvider options={{ "client-id": "AS4pp2Y6Fal9GV5Ch2ewwT5YsOwcveB2qlbKOkvG8V3mZY6pf2nqBVbIU6L9dixHJYA-Nse6b8B26097",currency:"USD" }}>
+                            <PayPalButtons
+                                style={{ color: "blue", shape: "pill", label: "pay", height: 40 }}
+                                createOrder={(data, actions) => createOrder(data, actions)}
+                                onApprove={(data, actions) => onApprove(data, actions)}
+                            />
+                        </PayPalScriptProvider>
                     </div>
                 </div>
             </div>
