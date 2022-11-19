@@ -29,7 +29,6 @@ export const CarritoCompras = () => {
 
     function createOrder(data, actions) {
         return actions.order.create({
-          intent: "CAPTURE",
           purchase_units: [
             {
               amount: {
@@ -45,8 +44,10 @@ export const CarritoCompras = () => {
         const paymentID = data.paymentID;
         const orderID = data.orderID;
         const payerID = data.payerID;
-    
- 
+        console.log("Id de pago: " + paymentID);
+        console.log("Id de la orden: " + orderID);
+        console.log("id del pagador" + data.payerID);
+
       }
 
     //setSubTotal(itemSubtotal);
@@ -105,7 +106,10 @@ export const CarritoCompras = () => {
                             <div className="col-6">{total}</div>
                         </div>
                         <hr></hr>
-                        <Link className="btn btn-success" to="/Checkout">Pagar!</Link>
+                        <Link className="btn btn-success" to="/Checkout">Pagar contraentrega!</Link>
+                        <br/>
+                        <br/>
+                        <br/>
                         <PayPalScriptProvider options={{ "client-id": "AS4pp2Y6Fal9GV5Ch2ewwT5YsOwcveB2qlbKOkvG8V3mZY6pf2nqBVbIU6L9dixHJYA-Nse6b8B26097",currency:"USD" }}>
                             <PayPalButtons
                                 style={{ color: "blue", shape: "pill", label: "pay", height: 40 }}
